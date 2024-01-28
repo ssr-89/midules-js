@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css2?family=Exo+2&display=swap");
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  line-height: 1;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Exo 2", sans-serif;
+  overflow-x: hidden;
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.btn {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+  font-family: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+.input {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+}
+
+.title,
+.text {
+  margin: 0;
+  padding: 0;
+}
+
+.block-primer {
+  padding: 20px;
+}
+
+.export {
+  background-color: orange;
+}
+
+.import {
+  background-color: powderblue;
+}
+
+i {
+  color: navy;
+}

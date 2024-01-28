@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modules</title>
+  <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/index.js" type="module"></script>
+</head>
+
+<body>
+  <div id="wrapper" class="wrapper">
+    <header id="header" class="header"></header>
+    <main id="main" class="main">
+      <section id="hero" class="hero">
+        <div class="hero__container">
+          <h1 class="hero__title title">Модули JS</h1>
+          <div class="hero__block block">
+            <div class="block__export block-primer export">
+              <h2 class="block-primer__title title">modules/helpers_array.js</h2>
+              <a href="https://www.youtube.com/watch?v=SjxiP5r6mNg" target="_blank" class="hero__link">Источник</a>
+              <pre>
+const helpers = {
+  getValue: function (array, key) {
+    let res = [];
+    for (let i = 0; i &lt; array.length; i++) {
+      res.push(array[i][key]);
+    }
+    return res;
+  },
+  map: function (array, key) {
+    let result = {};
+    for (let i = 0; i &lt; array.length; i++) {
+      result[array[i][key]] = array[i];
+    }
+    return result;
+  },
+  number: 31358,
+}
+export const getValue = helpers.getValue;
+export const map = helpers.map;
+export const number = helpers.number;
+              </pre>
+            </div>
+            <div class="block__import block-primer import">
+              <h2 class="block-primer__title title">js/index.js</h2>
+              <pre>
+import { map as mapArray, getValue, number } from '../modules/helpers_array.js';
+
+const superHero = [
+  { id: 12345, hero: 'batman', power: 'money' },
+  { id: 54321, hero: 'aquaman', power: 'fishpower' }
+];
+
+console.log(getValue(superHero, 'hero')); <i>// ['batman', 'aquaman']</i>
+console.log(getValue(superHero, 'id')); <i>// [12345, 54321]</i>
+console.log(mapArray(superHero, 'hero')); <i>//
+  {
+    "batman": {
+      "id": 12345,
+      "hero": "batman",
+      "power": "money"
+    },
+    "aquaman": {
+      "id": 54321,
+      "hero": "aquaman",
+      "power": "fishpower"
+    }
+  }
+</i>
+console.log(number); <i>// 31358</i>
+              </pre>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+
+</html>
