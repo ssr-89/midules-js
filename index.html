@@ -5,22 +5,39 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Modules</title>
-  <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
-  <link rel="stylesheet" href="css/styles.css">
+  <link type="image/x-icon" href="img/favicon.png" rel="shortcut icon">
+  <link href="css/styles.css" rel="stylesheet">
   <script src="js/index.js" type="module"></script>
 </head>
 
 <body>
   <div id="wrapper" class="wrapper">
-    <header id="header" class="header"></header>
+    <header id="header" class="header">
+      <div class="header__container">
+        <nav class="header__nav nav">
+          <ul class="header__menu header-menu list">
+            <li class="header-menu__item">
+              <a class="header-menu__link link open-page" href="index.html">
+                <span>Modules JS</span>
+              </a>
+            </li>
+            <li class="header-menu__item">
+              <a class="header-menu__link link" href="node-modules.html">
+                <span>Modules node.js</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
     <main id="main" class="main">
       <section id="hero" class="hero">
         <div class="hero__container">
           <h1 class="hero__title title">Модули JS</h1>
+          <a class="hero__link" href="https://www.youtube.com/watch?v=SjxiP5r6mNg" target="_blank">Источник</a>
           <div class="hero__block block">
             <div class="block__export block-primer export">
               <h2 class="block-primer__title title">modules/helpers_array.js</h2>
-              <a href="https://www.youtube.com/watch?v=SjxiP5r6mNg" target="_blank" class="hero__link">Источник</a>
               <pre>
 const helpers = {
   getValue: function (array, key) {

@@ -43,8 +43,38 @@ body {
   margin: 0;
   padding: 0;
 }
+.hero__title {
+  margin: 0 0 40px;
+  font-size: 48px;
+}
 
-.block-primer {
+/* HEADER */
+.header {
+  background-color: rgba(223, 240, 216, 1);
+  color: rgba(60, 118, 61, 1);
+  &__container {
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  &-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &__link {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      &.open-page {
+        background-color: rgba(60, 118, 61, 1);
+        color: rgba(223, 240, 216, 1);
+      }
+    }
+  }
+}
+
+.block-primer,
+.hero-block {
   padding: 20px;
 }
 .export {
@@ -56,4 +86,7 @@ body {
 
 i {
   color: navy;
+}
+.export-import {
+  background-color: rgba(223, 240, 216, 1);
 }

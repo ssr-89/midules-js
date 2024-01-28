@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>modules node.js</title>
+  <link type="image/x-icon" href="img/favicon.png" rel="shortcut icon">
+  <link href="css/styles.css" rel="stylesheet">
+</head>
+
+<body>
+  <div id="wrapper" class="wrapper">
+    <header id="header" class="header">
+      <div class="header__container">
+        <nav class="header__nav nav">
+          <ul class="header__menu header-menu list">
+            <li class="header-menu__item">
+              <a class="header-menu__link link" href="index.html">
+                <span>Modules JS</span>
+              </a>
+            </li>
+            <li class="header-menu__item">
+              <a class="header-menu__link link open-page" href="node-modules.html">
+                <span>Modules node.js</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main id="main" class="main">
+      <section id="hero" class="hero">
+        <div class="hero__container">
+          <h1 class="hero__title title">Модули Node.js</h1>
+          <a href="https://www.youtube.com/watch?v=nUxPA97WIcM" target="_blank">Источник</a>
+          <div class="hero__wrap hero-wrap">
+            <h2 class="hero-wrap__title title">Простые варианты</h2>
+            <div class="hero-wrap__block hero-block export">
+              <h3 class="hero-block__title title">Экспорт: example_module.js</h3>
+              <pre>
+  <i>// анонимный экспорт</i>
+  module.exports = function () {
+    return Math.random();
+  }
+
+  <i>// randomInt - именованный экспорт</i>
+  module.exports.randomInt = function () {
+    return Math.random();
+  }
+              </pre>
+            </div>
+            <div class="hero-wrap__block hero-block export">
+              <h3 class="hero-block__title title">Экспорт: ex_modules/index.js</h3>
+              <pre>
+  module.exports = function () {
+    return Math.random();
+  }
+              </pre>
+            </div>
+            <div class="hero-wrap__block hero-block export">
+              <h3 class="hero-block__title title">Экспорт: node_modules/ex_modules/index.js</h3>
+              <pre>
+  module.exports = function () {
+    return Math.random();
+  }
+              </pre>
+            </div>
+            <div class="hero-wrap__block hero-block import">
+              <h3 class="hero-block__title title">Импорт: index.js</h3>
+              <pre>
+  <i>// пример подключения анонимного модуля</i>
+  const m1 = require('./example_module');
+
+  console.log(m1());
+
+  <i>// пример подключения именованного модуля</i>
+  const { randomInt } = require('./example_module');
+
+  console.log(randomInt());
+
+  <i>// импорт из папки</i>
+  const rand = require('./ex_modules'); <i>// modules - папка с модулями</i>
+  <i>// автоматические подключит файл index.js из папки</i>
+
+  console.log(rand());
+
+  <i>// без ./ обращается к папке node_modules и ищет в ней папку ex_modules</i>
+  const randNumb = require('ex_modules');
+
+  console.log(randNumb());
+              </pre>
+            </div>
+          </div>
+          <div class="hero__wrap hero-wrap">
+            <h2 class="hero-wrap__title title">Сложные варианты</h2>
+            <div class="hero-wrap__block hero-block export">
+              <h3 class="hero-block__title title">Экспорт: random/random_int.js</h3>
+              <pre>
+module.exports = function (min = 0, max = 100) {
+  let rand = min + Math.random() * (max + 1 - min);
+  return Math.floor(rand);
+}
+              </pre>
+            </div>
+            <div class="hero-wrap__block hero-block export">
+              <h3 class="hero-block__title title">Экспорт: random/random_array.js</h3>
+              <pre>
+const randomInt = require('./random_int');
+
+module.exports = function (len = 10) {
+  let temp = [];
+  for (let i = 0; i &lt; len; i++) {
+    temp.push(randomInt());
+    return temp;
+  }
+}
+              </pre>
+            </div>
+            <div class="hero-wrap__block hero-block export-import">
+              <h3 class="hero-block__title title">Экспорт-импорт: random/index.js</h3>
+              <pre>
+const randInt = require('./random_int');
+const randArr = require('./random_array');
+
+module.exports = {
+  "randomInt": randInt,
+  "randomArr": randArr,
+}
+              </pre>
+            </div>
+            <div class="hero-wrap__block hero-block import">
+              <h3 class="hero-block__title title">Импорт: index.js</h3>
+              <pre>
+const { randomInt, randomArr } = require('./random');
+
+console.log(randomInt());
+console.log(randomInt(1000, 1500));
+console.log(randomArr(4));
+              </pre>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+
+</html>

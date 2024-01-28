@@ -51,7 +51,38 @@ body {
   padding: 0;
 }
 
-.block-primer {
+.hero__title {
+  margin: 0 0 40px;
+  font-size: 48px;
+}
+
+/* HEADER */
+.header {
+  background-color: rgb(223, 240, 216);
+  color: rgb(60, 118, 61);
+}
+.header__container {
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.header-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header-menu__link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+.header-menu__link.open-page {
+  background-color: rgb(60, 118, 61);
+  color: rgb(223, 240, 216);
+}
+
+.block-primer,
+.hero-block {
   padding: 20px;
 }
 
@@ -65,4 +96,8 @@ body {
 
 i {
   color: navy;
+}
+
+.export-import {
+  background-color: rgb(223, 240, 216);
 }
